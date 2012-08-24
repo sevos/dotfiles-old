@@ -1,0 +1,10 @@
+[dotfiles]
+repository = ~/Dotfiles
+ignore = [
+    'bin',
+    '.git',
+    '.gitignore',
+    '.gitmodules',
+    '*.swp']
+externals = {
+}
