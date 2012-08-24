@@ -1,0 +1,12 @@
+# ~/.tmuxinator/bonusbox.yml
+# you can make as many tabs as you wish...
+
+project_name: Bonusbox Core
+project_root: ~/Projects/bonusbox/core
+rvm: ruby-1.9.3-p0@bonusboxme_api
+tabs:
+  - shell: git pull
+  - web-server: rails s
+  - solr: rake sunspot:solr:run
+  - spork: bundle exec spork rspec
+  - tmux_copy: ~/Projects/tmux_copy.sh
