@@ -6,5 +6,4 @@ ignore = [
     '.gitignore',
     '.gitmodules',
     '*.swp']
-externals = {
-}
+externals = { '.ssh/config': '.ssh_config' }
