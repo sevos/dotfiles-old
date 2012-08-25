@@ -75,7 +75,14 @@ function prompt_git() {
 
   remote_branch_name="$(git for-each-ref --format='%(upstream:short)' refs/heads/${local_branch_name})"
   if [[ "$remote_branch_name" && ! "$local_branch_name" == "$remote_branch_name" ]]; then
-    remote_branch=$remote_branch_name
+    local local_sha remote_sha
+    local_sha="$(git for-each-ref --format='%(objectname)' refs/heads/${local_branch_name})"
+    remote_sha="$(git for-each-ref --format='%(objectname)' refs/heads/${remote_branch_name})"
+    if [[ "$local_sha" == "$remote_sha" ]]; then
+      remote_branch="$c3$remote_branch_name"
+    else
+      remote_branch="$c4$remote_branch_name"
+    fi
     echo "$c1[$local_branch$c1 <-> $remote_branch$c1]$c9"
   else
     echo "$c1[$local_branch$c1]$c9"
