@@ -24,7 +24,7 @@
 
 if [[ ! "${prompt_colors[@]}" ]]; then
   prompt_colors=(
-    "36" # information color
+    "1;34" # information color
     "37" # bracket color
     "31" # error color
   )
