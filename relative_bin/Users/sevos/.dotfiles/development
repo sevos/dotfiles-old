@@ -3,6 +3,9 @@
 source ~/.bashrc
 
 if [[ "$1" != "off" ]]; then
+  git reset HEAD --hard
+  git clean -f
+  ga
   gc local-master
   gu
 else
