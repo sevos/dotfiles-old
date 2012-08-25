@@ -1,0 +1,12 @@
+#!/bin/sh
+
+source ~/.bashrc
+
+if [[ "$1" != "off" ]]; then
+  gc local-master
+  gu
+else
+  gc master
+fi
+
+source ~/.bashrc
