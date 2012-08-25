@@ -1,3 +1,3 @@
-[submodule "vim"]
-	path = vim
-	url = git@github.com:sevos/vimfiles.git
+[submodule "link/vim"]
+	path = link/vim
+	url = git://github.com/sevos/vimfiles.git
