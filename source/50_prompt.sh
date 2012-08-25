@@ -74,7 +74,7 @@ function prompt_git() {
   fi
 
   remote_branch_name="$(git for-each-ref --format='%(upstream:short)' refs/heads/${local_branch_name})"
-  if [[ "$remote_branch_name" ]]; then
+  if [[ "$remote_branch_name" && ! "$local_branch_name" == "$remote_branch_name" ]]; then
     remote_branch=$remote_branch_name
     echo "$c1[$local_branch$c1 <-> $remote_branch$c1]$c9"
   else
