@@ -1,0 +1,2 @@
+rvm reload
+rvm use $(rvm current)
