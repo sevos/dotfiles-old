@@ -9,5 +9,5 @@ function __custom_bins_set_path() {
   sed_filter="s#\\${HOME}/##g"
   relative_path="$(pwd | sed ${sed_filter})"
 
-  PATH=$CUSTOM_BINS_DIR$relative_path:$DEFAULT_PATH
+  export PATH=$CUSTOM_BINS_DIR$relative_path:$DEFAULT_PATH
 }

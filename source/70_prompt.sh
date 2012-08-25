@@ -51,7 +51,6 @@ function prompt_exitcode() {
 
 # Git status.
 function prompt_git() {
-  __custom_bins_set_path
   prompt_getcolors
   local status local_branch_name local_branch local_flags remote_branch remote_branch_name
   status="$(git status 2>/dev/null)"
@@ -107,6 +106,7 @@ prompt_stack=()
 trap 'prompt_stack=("${prompt_stack[@]}" "$BASH_COMMAND")' DEBUG
 
 function prompt_command() {
+  __custom_bins_set_path
   local exit_code=$?
   # If the first command in the stack is prompt_command, no command was run.
   # Set exit_code to 0 and reset the stack.
