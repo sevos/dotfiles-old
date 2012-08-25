@@ -177,7 +177,7 @@ else
   e_header "Updating dotfiles"
   cd ~/.dotfiles
   git pull
-  git submodule update --init --recursive --quiet
+  git submodule update --init --recursive
 fi
 
 # Utilities, helpers.
