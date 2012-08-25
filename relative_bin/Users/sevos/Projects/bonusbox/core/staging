@@ -1,0 +1,18 @@
+#!/bin/bash
+source bonusbox
+
+if [[ "console" =~ "$1" ]]; then
+  e_header "Staging console"
+  e_arrow "Selecting sandbox mode"
+  skip || sandbox="--sandbox"
+  echo ''
+  e_arrow "Connecting"
+  ssh_exec core-staging "cd ~/applications/core-staging/current && bundle exec rails console staging $sandbox"
+elif [[ "deploy" =~ "$1" ]]; then
+  e_header "Deploying to staging"
+  bundle exec cap staging deploy
+elif [[ "log" =~ "$1" ]]; then
+  e_header "Opening staging log"
+  ssh_exec core-staging "cd ~/applications/core-staging/shared && tail -f log/staging.log"
+fi
+

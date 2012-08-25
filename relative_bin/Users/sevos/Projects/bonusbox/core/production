@@ -1,0 +1,21 @@
+#!/bin/bash
+source bonusbox
+
+if [[ "console" =~ "$1" ]]; then
+  e_header "Production console"
+  e_arrow "Selecting sandbox mode"
+  skip || sandbox="--sandbox"
+  echo ''
+  e_arrow "Connecting"
+  ssh_exec core-production "cd ~/applications/core-production/current && bundle exec rails console production $sandbox"
+  [[ "$sandbox" ]] && red_output
+elif [[ "deploy" =~ "$1" ]]; then
+  e_header "Deploying to production"
+  e_arrow "Deployment with migrations"
+  skip || migrations=":migrations"
+  red_output
+  bundle exec cap production deploy$migrations
+elif [[ "log" =~ "$1" ]]; then
+  e_header "Opening production log"
+  ssh_exec core-production "cd ~/applications/core-production/shared && tail -f log/production.log"
+fi
