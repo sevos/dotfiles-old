@@ -1,7 +1,5 @@
 #!/bin/bash
-echo "Dotfiles - sevos"
-echo "Modified version of"
-echo 'Dotfiles - "Cowboy" Ben Alman - http://benalman.com/'
+echo "Dotfiles - sevos - http://sevos.github.com/"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 
