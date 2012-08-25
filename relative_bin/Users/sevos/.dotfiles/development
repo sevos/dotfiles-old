@@ -2,14 +2,16 @@
 
 source ~/.bashrc
 
+git reset HEAD --hard
+git clean -f
+ga
+
 if [[ "$1" != "off" ]]; then
-  git reset HEAD --hard
-  git clean -f
-  ga
   gc local-master
-  gu
 else
   gc master
 fi
+
+gu
 
 source ~/.bashrc
