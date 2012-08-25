@@ -27,6 +27,8 @@ if [[ ! "${prompt_colors[@]}" ]]; then
     "1;34" # information color
     "37" # bracket color
     "31" # error color
+    "1;32" # scm clean
+    "1;33" # scm dirty
   )
 
   if [[ "$SSH_TTY" ]]; then
@@ -64,9 +66,11 @@ function prompt_git() {
       END {print r}'
   )"
   if [[ "$flags" ]]; then
-    output="$output$c1:$c0$flags"
+    output="$output$c1:$c4$flags"
+    echo "$c1[$c4$output$c1]$c9"
+  else
+    echo "$c1[$c3$output$c1]$c9"
   fi
-  echo "$c1[$c0$output$c1]$c9"
 }
 
 # SVN info.
