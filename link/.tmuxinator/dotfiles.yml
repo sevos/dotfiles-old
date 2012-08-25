@@ -1,0 +1,12 @@
+# ~/.tmuxinator/dotfiles.yml
+# you can make as many tabs as you wish...
+
+project_name: Dotfiles
+project_root: ~/Projects/Dotfiles
+socket_name: foo # Not needed.  Remove to use default socket
+tabs:
+  - shell:
+      layout: main-vertical
+      panes:
+        -
+        -
