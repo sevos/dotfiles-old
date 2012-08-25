@@ -34,6 +34,7 @@ function skip() {
   if [[ "$REPLY" =~ ^[Xx]$ ]]; then
     echo "Skipping!"
   else
+    echo "Continuing..."
     return 1
   fi
 }
