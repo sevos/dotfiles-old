@@ -25,3 +25,15 @@ function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
 function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
 function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
+
+# Offer the user a chance to skip something.
+function skip() {
+  local REPLY
+  REPLY=noskip
+  read -t 5 -n 1 -s -p "To skip, press X within 5 seconds. "
+  if [[ "$REPLY" =~ ^[Xx]$ ]]; then
+    echo "Skipping!"
+  else
+    return 1
+  fi
+}
