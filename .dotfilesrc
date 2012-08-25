@@ -1,9 +1,0 @@
-[dotfiles]
-repository = ~/Dotfiles
-ignore = [
-    'bin',
-    '.git',
-    '.gitignore',
-    '.gitmodules',
-    '*.swp']
-externals = { '.ssh/config': '.ssh_config' }
