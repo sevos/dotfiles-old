@@ -5,10 +5,9 @@ if [[ "console" =~ "$1" ]]; then
   e_header "Production console"
   e_arrow "Selecting sandbox mode"
   skip || sandbox="--sandbox"
-  echo ''
   e_arrow "Connecting"
+  [[ "$sandbox" ]] || red_output
   ssh_exec core-production "cd ~/applications/core-production/current && bundle exec rails console production $sandbox"
-  [[ "$sandbox" ]] && red_output
 elif [[ "deploy" =~ "$1" ]]; then
   e_header "Deploying to production"
   e_arrow "Deployment with migrations"

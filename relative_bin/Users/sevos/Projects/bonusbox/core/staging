@@ -5,7 +5,6 @@ if [[ "console" =~ "$1" ]]; then
   e_header "Staging console"
   e_arrow "Selecting sandbox mode"
   skip || sandbox="--sandbox"
-  echo ''
   e_arrow "Connecting"
   ssh_exec core-staging "cd ~/applications/core-staging/current && bundle exec rails console staging $sandbox"
 elif [[ "deploy" =~ "$1" ]]; then
