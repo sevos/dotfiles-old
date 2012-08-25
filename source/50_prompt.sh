@@ -77,7 +77,7 @@ function prompt_git() {
   if [[ "$remote_branch_name" && ! "$local_branch_name" == "$remote_branch_name" ]]; then
     local local_sha remote_sha
     local_sha="$(git for-each-ref --format='%(objectname)' refs/heads/${local_branch_name})"
-    remote_sha="$(git for-each-ref --format='%(objectname)' refs/heads/${remote_branch_name})"
+    remote_sha="$(git for-each-ref --format='%(objectname)' refs/remotes/${remote_branch_name})"
     if [[ "$local_sha" == "$remote_sha" ]]; then
       remote_branch="$c3$remote_branch_name"
     else
