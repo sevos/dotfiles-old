@@ -1,5 +1,5 @@
-[submodule "link/vim"]
-	path = link/vim
+[submodule "link/.vim"]
+	path = link/.vim
 	url = git://github.com/sevos/vimfiles.git
 [submodule "libs/z"]
 	path = libs/z
