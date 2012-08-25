@@ -1,13 +1,20 @@
 # This script should be called always after configuring $PATH
 
 DEFAULT_PATH=$PATH
-CUSTOM_BINS_DIR=$HOME/.dotfiles/custom_bins
+RELATIVE_BIN_DIR=$HOME/.dotfiles/relative_bin
+
+
+function __relative_bin_path() {
+  echo $RELATIVE_BIN_DIR$(pwd)
+}
 
 # Call this function in the beginning of your prompt_command
-function __custom_bins_set_path() {
+function __relative_bin_set_path() {
   local sed_filter relative_path
-  sed_filter="s#\\${HOME}##g"
-  relative_path="$(pwd | sed ${sed_filter})"
 
-  export PATH=$CUSTOM_BINS_DIR$relative_path:$DEFAULT_PATH
+  export PATH=$(__relative_bin_path):$DEFAULT_PATH
+}
+
+function cd_relative_bin() {
+  md $(__relative_bin_path)
 }
