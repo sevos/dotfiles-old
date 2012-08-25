@@ -51,6 +51,7 @@ function prompt_exitcode() {
 
 # Git status.
 function prompt_git() {
+  __custom_bins_set_path
   prompt_getcolors
   local status local_branch_name local_branch local_flags remote_branch remote_branch_name
   status="$(git status 2>/dev/null)"
