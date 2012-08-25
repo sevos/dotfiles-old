@@ -52,24 +52,33 @@ function prompt_exitcode() {
 # Git status.
 function prompt_git() {
   prompt_getcolors
-  local status output flags
+  local status local_branch_name local_branch local_flags remote_branch remote_branch_name
   status="$(git status 2>/dev/null)"
   [[ $? != 0 ]] && return;
-  output="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
-  [[ "$output" ]] || output="$(echo "$status" | awk '/# On branch/ {print $4}')"
-  [[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
-  flags="$(
+  local_branch="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
+  [[ "$local_branch" ]] || local_branch="$(echo "$status" | awk '/# On branch/ {print $4}')"
+  [[ "$local_branch" ]] || local_branch="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+  local_branch_name=$local_branch
+  local_flags="$(
     echo "$status" | awk 'BEGIN {r=""} \
       /^# Changes to be committed:$/        {r=r "+"}\
       /^# Changes not staged for commit:$/  {r=r "!"}\
       /^# Untracked files:$/                {r=r "?"}\
       END {print r}'
   )"
-  if [[ "$flags" ]]; then
-    output="$output$c1:$c4$flags"
-    echo "$c1[$c4$output$c1]$c9"
+  if [[ "$local_flags" ]]; then
+    local_branch="$local_branch$c1:$c4  $local_flags"
+    local_branch="$c4$local_branch"
   else
-    echo "$c1[$c3$output$c1]$c9"
+    local_branch="$c3$local_branch"
+  fi
+
+  remote_branch_name="$(git for-each-ref --format='%(upstream:short)' refs/heads/${local_branch_name})"
+  if [[ "$remote_branch_name" ]]; then
+    remote_branch=$remote_branch_name
+    echo "$c1[$local_branch$c1 <-> $remote_branch$c1]$c9"
+  else
+    echo "$c1[$local_branch$c1]$c9"
   fi
 }
 
