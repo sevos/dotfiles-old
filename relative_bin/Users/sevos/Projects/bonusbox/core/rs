@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source ~/.bashrc
+rvm use $(rvm current)
+
+if [[ "$@" ]]; then
+  bundle exec rspec $@
+else
+  rake parallel:spec
+fi
