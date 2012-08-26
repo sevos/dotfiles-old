@@ -13,5 +13,6 @@ else
 fi
 
 gu
+git submodule update --init
 
 source ~/.bashrc
