@@ -12,13 +12,10 @@ alias gs='git status'
 alias gst='gs'
 alias gd='git diff'
 alias gdc='gd --cached'
-alias gm='git commit -m'
-alias gma='git commit -am'
+alias gc='git commit -m'
 alias gb='git branch'
-alias gba='git branch -a'
-function gc() { git checkout "${@:-master}"; } # Checkout master by default
-alias gco='gc'
-alias gcb='gc -b'
+function gco() { git checkout "${@:-master}"; } # Checkout master by default
+alias gcob='gc -b'
 alias gr='git remote'
 alias grv='gr -v'
 #alias gra='git remote add'
@@ -68,7 +65,6 @@ for n in {1..5}; do alias gf$n="gf -n $n"; done
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   alias gdk='git ksdiff'
   alias gdkc='gdk --cached'
-  alias gt='gittower -s'
   if [[ ! "$SSH_TTY" ]]; then
     alias gd='gdk'
   fi
