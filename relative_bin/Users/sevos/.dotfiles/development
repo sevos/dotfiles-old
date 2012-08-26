@@ -5,12 +5,12 @@ git clean -f
 git add .
 
 if [[ "$1" != "off" ]]; then
-  gc local-master
+  git checkout local-master
 else
-  gc master
+  git checkout master
 fi
 
-gu
+git pull --force
 git submodule update --init
 
 source ~/.bashrc
