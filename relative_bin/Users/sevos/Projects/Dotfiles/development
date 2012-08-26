@@ -1,4 +1,3 @@
 #!/bin/bash
-cd ~/.dotfiles
-development $1
-cd -
+
+bash --login -c "cd ~/.dotfiles && development $1"
