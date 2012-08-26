@@ -46,7 +46,7 @@ localbin() {
 
 
 __local_bin_current_path() {
-  echo $RELATIVE_BIN_DIR$(pwd)
+  echo $LOCAL_BIN_DIR$(pwd)
 }
 
 # Call this function in the beginning of your prompt_command
