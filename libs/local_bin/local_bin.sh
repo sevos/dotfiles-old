@@ -13,7 +13,7 @@ else
   # if prompt command is set, invoke it and check whether
   # local bin is working properly
 
-  eval("$PROMPT_COMMAND")
+$PROMPT_COMMAND
 
   [[ "${__LOCAL_BIN_WORKS}" ]] || cat <<ERROR
 local_bin is not configured properly. It tried to set PROMPT_COMMAND,
