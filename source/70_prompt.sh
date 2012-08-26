@@ -67,7 +67,6 @@ function prompt_git() {
       END {print r}'
   )"
   if [[ "$local_flags" ]]; then
-    local_branch="$local_branch$c1:$c4  $local_flags"
     local_branch="$c4$local_branch"
   else
     local_branch="$c3$local_branch"
