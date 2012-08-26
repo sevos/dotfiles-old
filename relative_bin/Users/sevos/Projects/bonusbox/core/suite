@@ -1,6 +1,5 @@
 #!/bin/bash
 
-. ~/.bashrc
-rvm use $(rvm current)
+. bonusbox
 
 bundle exec rake parallel:spec && bundle exec cucumber features
