@@ -10,3 +10,6 @@
 [submodule "libs/ack"]
 	path = libs/ack
 	url = git://github.com/petdance/ack.git
+[submodule "libs/local_bin"]
+	path = libs/local_bin
+	url = git://github.com/sevos/local_bin.git
