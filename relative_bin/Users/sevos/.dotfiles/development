@@ -1,10 +1,8 @@
 #!/bin/sh
 
-source ~/.bashrc
-
 git reset HEAD --hard
 git clean -f
-ga
+git add .
 
 if [[ "$1" != "off" ]]; then
   gc local-master

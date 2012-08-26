@@ -3,5 +3,5 @@ source ~/.bashrc
 cd ~/.dotfiles
 __local_bin_set_path
 development $@
-cd -
+cd - 2>/dev/null
 __local_bin_set_path
