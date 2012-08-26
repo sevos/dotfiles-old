@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.bashrc
+. ~/.bashrc
 rvm use $(rvm current)
 
 bundle exec rake parallel:spec && bundle exec cucumber features

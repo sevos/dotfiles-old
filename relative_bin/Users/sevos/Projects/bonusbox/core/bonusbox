@@ -1,10 +1,5 @@
 #!/bin/sh
 
-function init() {
-  source ~/.bashrc &>/dev/null
-  rvm use $(rvm current) &>/dev/null
-}
-
 function red_output() {
   echo -e " \033[1;31m"
 }
@@ -17,4 +12,3 @@ function ssh_exec() {
 }
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then help; fi
-init
