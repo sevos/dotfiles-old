@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash --login -c "cd ~/.dotfiles && development $1"
+bash --login -c "cd ~/.dotfiles && __local_bin_set_path && development $1"
