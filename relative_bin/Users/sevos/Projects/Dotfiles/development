@@ -1,8 +1,4 @@
 #!/bin/bash
-local cmd
-$cmd=$1
 cd ~/.dotfiles
-__local_bin_set_path
-development $cmd
-cd - 2>/dev/null
-__local_bin_set_path
+development $1
+cd -
