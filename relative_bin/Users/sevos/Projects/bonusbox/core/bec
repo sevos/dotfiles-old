@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source bonusbox
+
+bundle exec cucumber $@

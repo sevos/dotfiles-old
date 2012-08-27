@@ -1,0 +1,3 @@
+#!/bin/bash
+. bonusbox
+bundle exec rake db:migrate db:test:prepare parallel:prepare
