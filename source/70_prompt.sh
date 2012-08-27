@@ -82,9 +82,9 @@ function prompt_git() {
     else
       remote_branch="$c4$remote_branch_name"
     fi
-    echo "$c1[$local_branch$c1 <-> $remote_branch$c1]$c9"
+    echo "${c1}Git status: $local_branch$c1 <-> $remote_branch$c9\n"
   else
-    echo "$c1[$local_branch$c1]$c9"
+    echo "${c1}Git status: $local_branch$c9\n"
   fi
 }
 
@@ -120,13 +120,13 @@ function prompt_command() {
   prompt_getcolors
   # http://twitter.com/cowboy/status/150254030654939137
   PS1="\n"
-  # git: [branch:flags]
-  PS1="$PS1$(prompt_git)"
   # misc: [cmd#:hist#]
-  # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
+  PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   # path: [user@host:path]
   PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
   PS1="$PS1\n"
+  # git: [branch:flags]
+  PS1="$PS1$(prompt_git)"
   # date: [HH:MM:SS]
   PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
   # exit code: 127
