@@ -121,7 +121,7 @@ function prompt_command() {
   # http://twitter.com/cowboy/status/150254030654939137
   PS1="\n"
   # misc: [cmd#:hist#]
-  PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
+  # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   # path: [user@host:path]
   PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
   PS1="$PS1\n"
