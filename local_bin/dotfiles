@@ -1,4 +1,4 @@
-#!/bin/bash
+  #!/bin/bash
 echo "Dotfiles - sevos - http://sevos.github.com/"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
@@ -103,7 +103,7 @@ function do_stuff() {
       # If _test function returns a string, skip file and print that message.
       skip="$("$1_test" "$file" "$dest")"
       if [[ "$skip" ]]; then
-        e_error "Skipping ~/$base, $skip."
+        e_success "Skipping ~/$base, $skip."
         continue
       fi
       # Destination file already exists in ~/. Back it up!
