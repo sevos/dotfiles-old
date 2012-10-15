@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [[ "$1" == "dump-merge" ]]; then
-  cp -r ~/.dotfiles/relative_bin/* relative_bin/
+  cp -r ~/.dotfiles/local_bin/* local_bin/
 elif [[ "$1" == "dump" ]]; then
-  rm -fr relative_bin/*
-  cp -r ~/.dotfiles/relative_bin/* relative_bin/
+  rm -fr local_bin/*
+  cp -r ~/.dotfiles/local_bin/* local_bin/
 elif [[ "$1" == "deploy" ]]; then
-  rm -fr ~/.dotfiles/relative_bin/*
-  cp -r relative_bin/* ~/.dotfiles/relative_bin/
+  rm -fr ~/.dotfiles/local_bin/*
+  cp -r local_bin/* ~/.dotfiles/local_bin/
 fi

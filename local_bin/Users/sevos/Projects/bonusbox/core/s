@@ -9,7 +9,7 @@ if [[ "console" =~ "$1" ]]; then
   ssh_exec core-staging "cd ~/applications/core-staging/current && bundle exec rails console staging $sandbox"
 elif [[ "deploy" =~ "$1" ]]; then
   e_header "Deploying to staging"
-  bundle exec cap staging deploy
+  echo "$(git branch | perl -ne '/^\* (.*)/ && print $1')" | bundle exec cap staging deploy
 elif [[ "log" =~ "$1" ]]; then
   e_header "Opening staging log"
   ssh_exec core-staging "cd ~/applications/core-staging/shared && tail -f log/staging.log"
