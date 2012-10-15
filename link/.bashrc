@@ -14,7 +14,7 @@ function src() {
 
 # Run dotfiles script, then source.
 function dotfiles() {
-  ~/.dotfiles/bin/dotfiles "$@" && src
+  ~/.dotfiles/local_bin/dotfiles "$@" && src
 }
 
 src
