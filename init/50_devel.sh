@@ -1,10 +1,7 @@
 # Load npm_globals, add the default node into the path.
 source ~/.dotfiles/source/50_devel.sh
 
-brew install python
-easy_install install pip
-pip install virtualenv
-pip install virtualenvwrapper
+pip install virtualenv virtualenvwrapper
 
 mkdir -p ~/.python_envs
 
