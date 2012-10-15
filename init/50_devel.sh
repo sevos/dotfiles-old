@@ -2,7 +2,8 @@
 source ~/.dotfiles/source/50_devel.sh
 
 e_header "Python - installing"
-pip install virtualenv virtualenvwrapper
+sudo easy_install pip
+sudo pip install virtualenv virtualenvwrapper
 mkdir -p $WORKON_HOME
 
 # Install Node.js.
