@@ -1,9 +1,13 @@
 # Load npm_globals, add the default node into the path.
 source ~/.dotfiles/source/50_devel.sh
 
-e_header "Python - installing"
-sudo easy_install pip
-sudo pip install virtualenv virtualenvwrapper
+e_header "Python"
+if [[ ! -x "/usr/local/bin/pip "]]; then
+  sudo easy_install pip && e_success "Installed pip" || e_error "Failed to install pip"
+fi
+if [[ ! -x "/usr/local/bin/virtualenv "]]; then
+  sudo pip install virtualenv virtualenvwrapper 1>/dev/null && e_success "Installed virtualenv" || e_error "Failed to install virtualenv"
+fi
 mkdir -p $WORKON_HOME
 
 # Install Node.js.
