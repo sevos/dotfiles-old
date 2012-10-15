@@ -3,8 +3,8 @@ source ~/.dotfiles/source/50_devel.sh
 
 e_header "Python - installing"
 pip install virtualenv virtualenvwrapper
-mkdir -p ~/.python_envs
-source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
+mkdir -p $WORKON_HOME
+source virtualenvwrapper.sh &>/dev/null
 
 # Install Node.js.
 #  if [[ "$(type -P nave)" ]]; then
