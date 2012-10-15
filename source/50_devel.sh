@@ -6,3 +6,4 @@ PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 
 # virtualenv
 export WORKON_HOME=~/.python_envs
+source virtualenvwrapper.sh &>/dev/null
