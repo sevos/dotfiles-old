@@ -1,4 +1,4 @@
-  #!/bin/bash
+#!/bin/bash
 echo "Dotfiles - sevos - http://sevos.github.com/"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
