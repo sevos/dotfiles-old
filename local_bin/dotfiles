@@ -137,6 +137,7 @@ function install_xcode_cmd_line_tools() {
   open $tmp_dmg_file_path
   e_arrow "Installing Command Line Tools..."
   mpkg_installer_file=$(ls /Volumes/Command\ Line\ Tools*/*.mpkg)
+  echo $mpkg_installer_file
   sudo -S installer -pkg $mpkg_installer_file -target /
   e_arrow "Cleaning up..."
   hdiutil detach /Volumes/Command\ Line\ Tools*
