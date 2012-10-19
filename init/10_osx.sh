@@ -39,6 +39,7 @@ if [[ ! -e /Applications/iTerm.app ]]; then
   e_header "Installing iTerm"
   e_arrow "Downloading..."
   curl -L http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip -o iterm.zip -s
+  [[ -e iterm.zip ]] || exit 1
   e_arrow "Installing..."
   unzip iterm.zip iTerm.app/*
   sudo mv iTerm.app /Applications/
