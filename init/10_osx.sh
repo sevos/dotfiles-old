@@ -32,3 +32,15 @@ if [[ "$(type -P brew)" ]]; then
     brew install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
   fi
 fi
+
+# iTerm
+
+if [[ ! -e /Applications/iTerm.app ]]; then
+  e_header "Installing iTerm"
+  e_arrow "Downloading..."
+  curl -L http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip -o iterm.zip -s
+  e_arrow "Installing..."
+  unzip iterm.zip iTerm.app/*
+  sudo mv iTerm.app /Applications/
+  rm iterm.zip
+fi
