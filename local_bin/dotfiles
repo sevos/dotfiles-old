@@ -90,6 +90,9 @@ function link_do() {
 function do_stuff() {
   local base dest skip
   local files=(~/.dotfiles/$1/*)
+  if [[ "$1" == "copy" ]]; then
+    files=$(find ~/.dotfiles/$1/*)
+  fi
   # No files? abort.
   if (( ${#files[@]} == 0 )); then return; fi
   # Run _header function only if declared.
