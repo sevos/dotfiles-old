@@ -122,12 +122,32 @@ function do_stuff() {
   done
 }
 
+function install_xcode_cmd_line_tools() {
+  local source_url=$1
+  local tmp_dmg_file_path=/tmp/xcode_cmd_line.dmg
+
+  e_header "Installing XCode Command Line Tools"
+  e_arrow "Downloading installation package..."
+  curl -o $tmp_dmg_file_path $source_url
+
+  e_arrow "Mounting DMG file..."
+  open $tmp_dmg_file_path
+  e_arrow "Installing Command Line Tools..."
+  sudo -S installer -pkg /Volumes/Command\ Line\ Tools*/*.mpkg -target /
+  e_arrow "Cleaning up..."
+  hdiutil detach /Volumes/Command\ Line\ Tools*
+  rm $tmp_dmg_file_path
+  e_success "XCode Command Line Tools installed!"
+}
+
 # Enough with the functions, let's do stuff.
 
 # Ensure that we can actually, like, compile anything.
 if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
-  e_error "The XCode Command Line Tools must be installed first."
-  exit 1
+  e_header "The XCode Command Line Tools must be installed first."
+  echo "Type URL for XCode command line tools: "
+  read XCODE_CMDLINETOOLS_URL
+  install_xcode_cmd_line_tools $XCODE_CMDLINETOOLS_URL
 fi
 
 # If Git is not installed...
