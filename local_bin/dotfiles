@@ -125,6 +125,7 @@ function do_stuff() {
 function install_xcode_cmd_line_tools() {
   local source_url=$1
   local tmp_dmg_file_path=/tmp/xcode_cmd_line.dmg
+  local mpkg_installer_file
 
   e_header "Installing XCode Command Line Tools"
   e_arrow "Downloading installation package..."
@@ -135,7 +136,8 @@ function install_xcode_cmd_line_tools() {
   e_arrow "Mounting DMG file..."
   open $tmp_dmg_file_path
   e_arrow "Installing Command Line Tools..."
-  sudo -S installer -pkg /Volumes/Command\ Line\ Tools*/*.mpkg -target /
+  mpkg_installer_file=$(ls /Volumes/Command\ Line\ Tools*/*.mpkg)
+  sudo -S installer -pkg $mpkg_installer_file -target /
   e_arrow "Cleaning up..."
   hdiutil detach /Volumes/Command\ Line\ Tools*
   rm $tmp_dmg_file_path
