@@ -129,7 +129,7 @@ function install_xcode_cmd_line_tools() {
 
   e_header "Installing XCode Command Line Tools"
   e_arrow "Downloading installation package..."
-  curl -o $tmp_dmg_file_path -L $source_url
+  curl -#o $tmp_dmg_file_path -L $source_url
 
   [[ -e $tmp_dmg_file_path ]] || exit 1
 
