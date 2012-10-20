@@ -148,8 +148,8 @@ function install_xcode_cmd_line_tools() {
 # Enough with the functions, let's do stuff.
 
 echo -n "Hey, I might need to use sudo. Please gimme your sudo passowrd: "
-read -s SUDO_PASSWORD
 export SUDO_PASSWORD
+read -s SUDO_PASSWORD
 
 # Ensure that we can actually, like, compile anything.
 if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
