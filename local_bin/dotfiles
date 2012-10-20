@@ -138,14 +138,18 @@ function install_xcode_cmd_line_tools() {
   sleep 5
   e_arrow "Installing Command Line Tools..."
   mpkg_installer_file=$(ls /Volumes/Command*/*.mpkg)
-  sudo -S installer -pkg "$mpkg_installer_file" -target /
+  echo $SUDO_PASSWORD | sudo -S installer -pkg "$mpkg_installer_file" -target /
   e_arrow "Cleaning up..."
-  hdiutil detach /Volumes/Command\ Line\ Tools*
+  hdiutil detach /Volumes/Command\ Line\ Tools* &>/dev/null
   rm $tmp_dmg_file_path
   e_success "XCode Command Line Tools installed!"
 }
 
 # Enough with the functions, let's do stuff.
+
+echo -n "Hey, I might need to use sudo. Please gimme your sudo passowrd: "
+read SUDO_PASSWORD
+export SUDO_PASSWORD
 
 # Ensure that we can actually, like, compile anything.
 if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
@@ -238,4 +242,5 @@ if [[ "$new_dotfiles_install" && -e "conf/firsttime_reminder.sh" ]]; then
 fi
 
 # All done!
+SUDO_PASSWORD=""
 e_header "All done!"

@@ -5,7 +5,7 @@
 # https://github.com/joyent/node/issues/3681
 # https://github.com/mxcl/homebrew/issues/10245
 if [[ ! -d "$('xcode-select' -print-path 2>/dev/null)" ]]; then
-  sudo xcode-select -switch /usr/bin
+  echo $SUDO_PASSWORD | sudo xcode-select -switch /usr/bin
 fi
 
 # Install Homebrew.
@@ -41,7 +41,7 @@ if [[ ! -e /Applications/iTerm.app ]]; then
   curl -L http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip -o iterm.zip -s
   [[ -e iterm.zip ]] || exit 1
   e_arrow "Installing..."
-  unzip iterm.zip iTerm.app/*
-  sudo mv iTerm.app /Applications/
+  unzip iterm.zip iTerm.app/* 1>/dev/null
+  echo $SUDO_PASSWORD |  sudo mv iTerm.app /Applications/
   rm iterm.zip
 fi
