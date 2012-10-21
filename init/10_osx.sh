@@ -42,6 +42,6 @@ if [[ ! -e /Applications/iTerm.app ]]; then
   [[ -e iterm.zip ]] || exit 1
   e_arrow "Installing..."
   unzip iterm.zip iTerm.app/* 1>/dev/null
-  echo $SUDO_PASSWORD |  sudo mv iTerm.app /Applications/
+  echo $SUDO_PASSWORD | sudo mv iTerm.app /Applications/
   rm iterm.zip
 fi
