@@ -16,5 +16,9 @@ function ssh_exec() {
   ssh $server -t "bash --login -c '$cmd'"
 }
 
+function current_branch() {
+  git rev-parse --symbolic-full-name --abbrev-ref HEAD
+}
+
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then help; fi
 init
