@@ -13,6 +13,3 @@
 [submodule "libs/local_bin"]
 	path = libs/local_bin
 	url = git://github.com/sevos/local_bin.git
-[submodule "libs/tmux-powerline"]
-	path = libs/tmux-powerline
-	url = https://github.com/sevos/tmux-powerline.git
