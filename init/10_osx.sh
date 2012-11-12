@@ -33,8 +33,10 @@ if [[ "$(type -P brew)" ]]; then
   fi
 fi
 
-# iTerm
+e_header "Installing Monaco for Powerline font"
+cp conf/Monaco-Powerline.otf ~/Library/Fonts/
 
+# iTerm
 if [[ ! -e /Applications/iTerm.app ]]; then
   e_header "Installing iTerm"
   e_arrow "Downloading..."
