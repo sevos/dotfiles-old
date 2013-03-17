@@ -12,3 +12,4 @@ alias e='emacsclient -c -n'
 alias ec='emacsclient -c'
 alias ex='open -a /Applications/Emacs.app "$@"'
 alias ek='launchctl unload -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist ; killall Emacs ; launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon'
+export ALTERNATE_EDITOR=""
