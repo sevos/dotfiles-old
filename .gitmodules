@@ -16,3 +16,6 @@
 [submodule "libs/tmux-powerline"]
 	path = libs/tmux-powerline
 	url = https://github.com/sevos/tmux-powerline.git
+[submodule "libs/powerline"]
+	path = libs/powerline
+	url = https://github.com/Lokaltog/powerline.git
