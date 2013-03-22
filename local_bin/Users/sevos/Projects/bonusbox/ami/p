@@ -1,0 +1,11 @@
+#!/bin/bash
+
+message=""
+for word in "$@"
+do
+    message+="$word "
+done
+git add -u .
+git commit -m "$message"
+git push
+cap instance:provision

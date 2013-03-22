@@ -1,0 +1,23 @@
+#!/bin/bash
+
+. bonusbox
+
+function ticket() {
+  local CURRENT_BRANCH=$(current_branch)
+
+  if [[ "$CURRENT_BRANCH" ]]; then
+     echo $CURRENT_BRANCH | cut -d/ -f2 | grep -e "#"
+  fi
+}
+
+MESSAGE=$1
+
+if [[ "$(ticket)" ]]; then
+  MESSAGE="[$(ticket)] $MESSAGE"
+fi
+
+git add -u
+git st
+
+e_header "Commiting: $MESSAGE"
+git commit -m "$MESSAGE"

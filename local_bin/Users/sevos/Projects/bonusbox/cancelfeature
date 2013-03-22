@@ -1,0 +1,10 @@
+#!/bin/bash
+. bonusbox
+
+CURRENT_BRANCH=$(current_branch)
+
+e_header "Canceling feature $CURRENT_BRANCH"
+
+git co master
+git branch -d $CURRENT_BRANCH && \
+  git push origin :$CURRENT_BRANCH || exit 0

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+. bonusbox
+
+TICKET_NUMBER=$2
+FEATURE_NAME=$1
+
+if [[ "$TICKET_NUMBER" ]]; then
+  FEATURE_NAME="#${TICKET_NUMBER}/${FEATURE_NAME}"
+fi
+
+FEATURE_NAME=$(ruby -e "print Time.now.strftime('%Y%m')")/$FEATURE_NAME
+
+git checkout -b $FEATURE_NAME
+git push -u origin $FEATURE_NAME

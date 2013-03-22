@@ -1,0 +1,1 @@
+dropdb casino_royale && createdb casino_royale && ./erlsqlmigrate up

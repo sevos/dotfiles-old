@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+SOURCE_BRANCH=bonusboxme:$CURRENT_BRANCH
+MERGE_TO=bonusboxme:master
+
+git push -u origin $CURRENT_BRANCH
+
+hub pull-request -b $MERGE_TO -h $SOURCE_BRANCH

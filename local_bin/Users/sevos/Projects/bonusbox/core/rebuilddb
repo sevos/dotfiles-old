@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. bonusbox
+
+rake db:drop:all db:create:all db:migrate db:seed \
+     db:test:prepare parallel:prepare
