@@ -10,7 +10,7 @@ function parse_git_branch {
 }
 
 function prompt_command() {
-  PS1="\w\$(parse_git_branch) $ "
+  PS1="\h:\w\$(parse_git_branch) $ "
   PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 }
 
